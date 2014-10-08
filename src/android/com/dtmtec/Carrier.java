@@ -19,8 +19,10 @@ public class Carrier extends CordovaPlugin {
 
       TelephonyManager manager = (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
       String carrierName = manager.getNetworkOperatorName();
+      String carrierCode = manager.getNetworkOperator();
 
-      callbackContext.success("Operadora: " + carrierName + " essa e dinamica");
+      callbackContext.success("nome: " + carrierName + ", codigo: " + carrierCode);
+
       return true;
     } else {
       return false;
