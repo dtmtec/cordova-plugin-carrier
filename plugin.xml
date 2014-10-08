@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<plugin xmlns="http://www.phonegap.com/ns/plugins/1.0"
+  id="com.dtmtec.carrier"
+  version="0.1.0">
+  <name>Carrier</name>
+  <description>Get the carrier from a phone</description>
+  <license>MIT</license>
+  <keywords>cordova,calendar</keywords>
+
+  <js-module src="www/carrier.js" name="Carrier">
+    <clobbers target="window.carrier" />
+  </js-module>
+
+  <!-- android -->
+  <platform name="android">
+    <config-file target="res/xml/config.xml" parent="/*">
+      <feature name="Carrier">
+        <param name="android-package" value="com.dtmec.carrier.Carrier"/>
+      </feature>
+    </config-file>
+
+    <source-file src="src/android/Carrier.java" target-dir="src/com/dtmtec/carrier" />
+  </platform>
+</plugin>
