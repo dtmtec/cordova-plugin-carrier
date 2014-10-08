@@ -11,7 +11,7 @@ public class Carrier extends CordovaPlugin {
   @Override
   public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
     if (action.equals("getCarrierName")) {
-      callbackContext.success('VIVO');
+      callbackContext.success("VIVO");
       return true;
     } else {
       return false;
