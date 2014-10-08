@@ -1,17 +1,26 @@
 package com.dtmtec;
 
+import android.app.Activity;
 import org.apache.cordova.CallbackContext;
 import org.apache.cordova.CordovaPlugin;
 import org.json.JSONObject;
 import org.json.JSONArray;
 import org.json.JSONException;
 
+import android.content.Context;
+import android.telephony.TelephonyManager;
+
 public class Carrier extends CordovaPlugin {
 
   @Override
   public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
     if (action.equals("getCarrierInfo")) {
-      callbackContext.success("VIVO");
+      Context context = this.cordova.getActivity().getApplicationContext();
+
+      TelephonyManager manager = (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
+      String carrierName = manager.getNetworkOperatorName();
+
+      callbackContext.success("Operadora: " + carrierName);
       return true;
     } else {
       return false;
