@@ -4,4 +4,11 @@ var carrier = {
   }
 }
 
-module.exports = carrier;
+cordova.addConstructor(function () {
+  if (!window.plugins) {
+    window.plugins = {};
+  }
+
+  window.plugins.carrier = carrier;
+  return window.plugins.carrier;
+});

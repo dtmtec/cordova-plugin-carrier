@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<plugin xmlns="http://www.phonegap.com/ns/plugins/1.0"
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+  xmlns:android="http://schemas.android.com/apk/res/android"
   id="com.dtmtec.carrier"
   version="0.1.0">
   <name>Carrier</name>
@@ -20,6 +21,6 @@
       </feature>
     </config-file>
 
-    <source-file src="src/android/Carrier.java" target-dir="src/com/dtmtec/carrier" />
+    <source-file src="src/android/com/dtmtec/Carrier.java" target-dir="src/com/dtmtec" />
   </platform>
 </plugin>
