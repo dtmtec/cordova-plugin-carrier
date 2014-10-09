@@ -1,7 +1,7 @@
 #import <Cordova/CDV.h>
 #import <Foundation/Foundation.h>
-#import <CoreTelephony/CTTelephonyNetworkInfo.h>
 #import <CoreTelephony/CTCarrier.h>
+#import <CoreTelephony/CTTelephonyNetworkInfo.h>
 
 @interface Carrier : CDVPlugin
 

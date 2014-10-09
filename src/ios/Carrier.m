@@ -2,8 +2,8 @@
 
 #import "Carrier.h"
 #import <Cordova/CDV.h>
-#import <CoreTelephony/CTTelephonyNetworkInfo.h>
 #import <CoreTelephony/CTCarrier.h>
+#import <CoreTelephony/CTTelephonyNetworkInfo.h>
 
 @implementation Carrier
 
