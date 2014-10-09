@@ -10,9 +10,13 @@
    CTTelephonyNetworkInfo *netinfo = [[CTTelephonyNetworkInfo alloc] init];
    CTCarrier *carrier = [netinfo subscriberCellularProvider];
 
-   NSString *carrierResult = [carrier carrierName];
+   NSString *carrierNameResult = [carrier carrierName];
+   NSString *carrierCodeResult = [carrier mobileNetworkCode];
 
-   CDVPluginResult *pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:carrierResult];
+   NSString *middleResult = [carrierNameResult stringByAppendingString:@","];
+   NSString *finalResult  = [middleResult stringByAppendingString:carrierCodeResult];
+
+   CDVPluginResult *pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:finalResult];
 
   /* if (echo != nil && [echo length] > 0) { */
   /*   pluginresult = [cdvpluginresult resultwithstatus:cdvcommandstatus_ok messageasstring:echo]; */
