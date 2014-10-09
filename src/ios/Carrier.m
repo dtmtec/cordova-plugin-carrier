@@ -11,7 +11,7 @@
    CTCarrier *carrier = [netinfo subscriberCellularProvider];
 
    NSString *carrierNameResult = [carrier carrierName];
-   NSString *carrierCodeResult = [carrier mobileNetworkCode];
+   NSString *carrierCodeResult = [carrier isoCountryCode];
 
    NSString *middleResult = [carrierNameResult stringByAppendingString:@","];
    NSString *finalResult  = [middleResult stringByAppendingString:carrierCodeResult];
