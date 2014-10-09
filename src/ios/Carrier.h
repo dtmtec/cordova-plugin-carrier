@@ -2,6 +2,6 @@
 
 @interface Carrier : CDVPlugin
 
-- (void)carrier:(CDVInvokedUrlCommand*)command;
+- (void)getCarrierInfo:(CDVInvokedUrlCommand*)command;
 
 @end

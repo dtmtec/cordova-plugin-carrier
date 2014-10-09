@@ -5,7 +5,7 @@
 
 @implementation Carrier
 
-- (void)carrier:(CDVInvokedUrlCommand*)command
+- (void)getCarrierInfo:(CDVInvokedUrlCommand*)command
 {
   NSString *carrier = @"OPERADORA BOLADONA";
 
