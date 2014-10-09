@@ -10,7 +10,7 @@
    CTTelephonyNetworkInfo *netinfo = [[CTTelephonyNetworkInfo alloc] init];
    CTCarrier *carrier = [netinfo subscriberCellularProvider];
 
-   NSString *carrierResult = [carrier mobileCountryCode];
+   NSString *carrierResult = [carrier carrierName];
 
    CDVPluginResult *pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:carrierResult];
 
