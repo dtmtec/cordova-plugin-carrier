@@ -10,8 +10,7 @@
    CTTelephonyNetworkInfo *netinfo = [[CTTelephonyNetworkInfo alloc] init];
    CTCarrier *carrier = [netinfo subscriberCellularProvider];
 
-   /* NSString *carrierResult = [carrier carrierName]; */
-   NSString *carrierResult = @"AGORA VAI HEIN";
+   NSString *carrierResult = [carrier carrierName];
 
    CDVPluginResult *pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:carrierResult];
 
