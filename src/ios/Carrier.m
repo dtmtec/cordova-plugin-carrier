@@ -16,11 +16,15 @@
    NSString *carrierCodeResult = [carrier mobileCountryCode];
    /* br (ISO Country Code) */
    NSString *carrierCountryResult = [carrier isoCountryCode];
+   /* 31 (MNC) */
+   NSString *carrierNetworkResult = [carrier mobileNetworkCode];
 
    NSString *middleResultOne   = [carrierNameResult stringByAppendingString:@","];
    NSString *middleResultTwo   = [middleResultOne stringByAppendingString:carrierCodeResult];
    NSString *middleResultThree = [middleResultTwo stringByAppendingString:@","];
-   NSString *finalResult       = [middleResultThree stringByAppendingString:carrierCountryResult];
+   NSString *middleResultFour  = [middleResultThree stringByAppendingString:carrierCountryResult];
+   NSString *middleResultFive  = [middleResultFour stringByAppendingString:@","];
+   NSString *finalResult       = [middleResultFive stringByAppendingString:carrierNetworkResult];
 
    CDVPluginResult *pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:finalResult];
 
