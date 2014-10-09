@@ -18,10 +18,15 @@ public class Carrier extends CordovaPlugin {
       Context context = this.cordova.getActivity().getApplicationContext();
 
       TelephonyManager manager = (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
-      String carrierName = manager.getNetworkOperatorName();
-      String carrierCode = manager.getNetworkOperator();
 
-      callbackContext.success(carrierName + "," + carrierCode);
+      String carrierName = manager.getSimOperatorName(); // VIVO
+      String simOperator = manager.getSimOperator(); // 72411
+
+      String mcc = simOperator.substring(0, Math.min(simOperator.length(), 3)); // 724
+      String countryCode = manager.getSimCountryIso(); // br
+      String mnc = simOperator.substring(Math.max(simOperator.length() - 2, 0)); // 11
+
+      callbackContext.success(carrierName + "," + mcc + "," + countryCode + "," + mnc);
 
       return true;
     } else {
