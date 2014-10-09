@@ -16,6 +16,15 @@
     <clobbers target="window.plugins.carrier" />
   </js-module>
 
+  <!-- ios -->
+  <platform name="ios">
+    <config-file target="config.xml" parent="/*">
+      <feature name="Carrier">
+        <param name="ios-package" value="Carrier" />
+      </feature>
+    </config-file>
+  </platform>
+
   <!-- android -->
   <platform name="android">
     <config-file target="res/xml/config.xml" parent="/*">
