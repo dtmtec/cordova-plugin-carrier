@@ -21,7 +21,7 @@ public class Carrier extends CordovaPlugin {
       String carrierName = manager.getNetworkOperatorName();
       String carrierCode = manager.getNetworkOperator();
 
-      callbackContext.success("nome: " + carrierName + ", codigo: " + carrierCode);
+      callbackContext.success(carrierName + "," + carrierCode);
 
       return true;
     } else {
