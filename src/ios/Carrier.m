@@ -7,8 +7,6 @@
 
 - (void)getCarrierInfo:(CDVInvokedUrlCommand*)command
 {
-  // NSString *carrier = @"OPERADORA BOLADONA";
-
    CTTelephonyNetworkInfo *netinfo = [[CTTelephonyNetworkInfo alloc] init];
    CTCarrier *carrier = [netinfo subscriberCellularProvider];
 
