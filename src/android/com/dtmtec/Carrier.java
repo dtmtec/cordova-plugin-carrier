@@ -26,7 +26,14 @@ public class Carrier extends CordovaPlugin {
       String countryCode = manager.getSimCountryIso(); // br
       String mnc = simOperator.substring(Math.max(simOperator.length() - 2, 0)); // 11
 
-      callbackContext.success(carrierName + "," + mcc + "," + countryCode + "," + mnc);
+      JSONObject result = new JSONObject();
+
+      result.put("carrierName", carrierName);
+      result.put("countryCode", countryCode);
+      result.put("mcc", mcc);
+      result.put("mnc", mnc);
+
+      callbackContext.success(result);
 
       return true;
     } else {
