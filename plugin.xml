@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
   xmlns:android="http://schemas.android.com/apk/res/android"
-  id="com.dtmtec.carrier"
-  version="0.1.0">
+  id="br.com.dtmtec.plugins.carrier"
+  version="1.0.0">
   <name>Carrier</name>
-  <description>Get the carrier from a phone</description>
+  <description>A plugin to get the device's carrier name, mcc mnc, and country code</description>
   <license>MIT</license>
-  <keywords>cordova,calendar</keywords>
+  <keywords>cordova,carrier,mcc,mnc</keywords>
 
   <engines>
     <engine name="cordova" version=">=3.0.0"/>
