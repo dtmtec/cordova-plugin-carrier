@@ -2,6 +2,7 @@
 
 #import "Carrier.h"
 #import <Cordova/CDV.h>
+#import <Foundation/Foundation.h>
 
 @implementation Carrier
 
@@ -10,29 +11,24 @@
    CTTelephonyNetworkInfo *netinfo = [[CTTelephonyNetworkInfo alloc] init];
    CTCarrier *carrier = [netinfo subscriberCellularProvider];
 
-   /* Oi (Carrier Name) */
-   NSString *carrierNameResult = [carrier carrierName];
-   /* 724 (MCC) */
-   NSString *carrierCodeResult = [carrier mobileCountryCode];
-   /* br (ISO Country Code) */
+   NSString *carrierNameResult    = [carrier carrierName];
    NSString *carrierCountryResult = [carrier isoCountryCode];
-   /* 31 (MNC) */
+   NSString *carrierCodeResult    = [carrier mobileCountryCode];
    NSString *carrierNetworkResult = [carrier mobileNetworkCode];
 
-   NSString *middleResultOne   = [carrierNameResult stringByAppendingString:@","];
-   NSString *middleResultTwo   = [middleResultOne stringByAppendingString:carrierCodeResult];
-   NSString *middleResultThree = [middleResultTwo stringByAppendingString:@","];
-   NSString *middleResultFour  = [middleResultThree stringByAppendingString:carrierCountryResult];
-   NSString *middleResultFive  = [middleResultFour stringByAppendingString:@","];
-   NSString *finalResult       = [middleResultFive stringByAppendingString:carrierNetworkResult];
+   if (!carrierNameResult)    carrierNameResult    = @"";
+   if (!carrierCountryResult) carrierCountryResult = @"";
+   if (!carrierCodeResult)    carrierCodeResult    = @"";
+   if (!carrierNetworkResult) carrierNetworkResult = @"";
 
-   CDVPluginResult *pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:finalResult];
+   NSDictionary *carrierData = [NSDictionary dictionaryWithObjectsAndKeys:
+   carrierNameResult,@"carrierName",
+   carrierCountryResult,@"countryCode",
+   carrierCodeResult,@"mcc",
+   carrierNetworkResult,@"mnc",
+   nil];
 
-  /* if (echo != nil && [echo length] > 0) { */
-  /*   pluginresult = [cdvpluginresult resultwithstatus:cdvcommandstatus_ok messageasstring:echo]; */
-  /* } else { */
-  /*   pluginresult = [cdvpluginresult resultwithstatus:cdvcommandstatus_error]; */
-  /* } */
+   CDVPluginResult *pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsDictionary:carrierData];
 
   [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
 }
