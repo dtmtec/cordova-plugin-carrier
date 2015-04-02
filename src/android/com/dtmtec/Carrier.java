@@ -20,6 +20,9 @@ public class Carrier extends CordovaPlugin {
       TelephonyManager manager = (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
 
       String carrierName = manager.getSimOperatorName(); // VIVO
+      if("".equals(carrierName)){
+        carrierName = manager.getNetworkOperatorName();
+      }
       String simOperator = manager.getSimOperator(); // 72411
 
       String mcc = simOperator.substring(0, Math.min(simOperator.length(), 3)); // 724
